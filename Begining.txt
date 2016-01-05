@@ -1,0 +1,8 @@
+[Human body detector]
+OMRON D6T
+>> https://www.omron.com/ecb/products/sensor/11/d6t.html
+>> https://www.components.omron.com/components/web/pdflib.nsf/0/305E545BDF3C5FD486257C3C005EF2D0/$file/D6T-01_ThermalIRSensor-Whitepaper.pdf
+>> https://www.youtube.com/watch?v=-_7EeKNRziw&spfreload=10
+
+
+
