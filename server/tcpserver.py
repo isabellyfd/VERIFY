@@ -2,7 +2,7 @@ import socket
 import sys
 
 # Create a TCP/IP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sockrecv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
 server_address = ('localhost', 10000)
@@ -20,19 +20,16 @@ while True:
     try:
         print >>sys.stderr, 'connection from', client_address
 
+        data = NULL
         # Receive the data in small chunks and retransmit it
         while True:
-            data = connection.recv(16)
-            print >>sys.stderr, 'received "%s"' % data
-            if data:
-                print >>sys.stderr, 'sending data back to the client'
-                if data == 'exit':
-                    connection.sendall('process over')
-                else:
-                    connection.sendall(data)
-            else:
-                print >>sys.stderr, 'no more data from', client_address
-                break
+            data = data+connection.recv(16000)
+            if len(data) > 71400:
+                break             
+
+        f = open("teste.mp4", "w")
+        f.write(data)
+        f.close()
             
     finally:
         # Clean up the connection
